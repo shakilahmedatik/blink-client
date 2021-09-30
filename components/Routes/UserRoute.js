@@ -16,7 +16,8 @@ const UserRoute = ({ children }) => {
   const fetchUser = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.NEXT_PUBLIC_API}/current-user`
+        `${process.env.NEXT_PUBLIC_API}/current-user`,
+        { withCredentials: true }
       )
       //   console.log(data);
       if (data.ok) setOk(true)

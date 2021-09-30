@@ -36,11 +36,11 @@ const ForgotPassword = () => {
         }
       )
       setSuccess(true)
-      toast('Check your email for the secret code')
+      toast.success('Check your email for the secret code')
       setLoading(false)
     } catch (err) {
       setLoading(false)
-      toast(err.response.data)
+      toast.error(err.response.data)
     }
   }
 
@@ -74,8 +74,8 @@ const ForgotPassword = () => {
     <section style={{ backgroundImage: `url('/images/live.svg')` }}>
       <div className='flex justify-center py-16'>
         <div className='w-full max-w-md p-8 space-y-3 text-gray-800 rounded-xl bg-gray-50'>
-          <h1 className='text-3xl font-mono text-gray-800 text-center'>
-            Reset Password
+          <h1 className='text-3xl font-mono text-gray-500 text-center'>
+            RESET PASSWORD
           </h1>
           <form
             onSubmit={success ? handleResetPassword : handleSubmit}
@@ -132,10 +132,10 @@ const ForgotPassword = () => {
 
             <button
               type='submit'
-              className='block w-full p-3 text-center bg-indigo-500 rounded-sm text-gray-50'
+              className='block w-full p-3 text-center rounded-sm text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400'
               disabled={loading || !email}
             >
-              {loading ? <SyncOutlined spin /> : 'Submit'}
+              {loading ? <SyncOutlined spin /> : 'SUBMIT'}
             </button>
           </form>
         </div>

@@ -7,8 +7,8 @@ import { Context } from '../context'
 import { useRouter } from 'next/router'
 
 const login = () => {
-  const [email, setEmail] = useState('shakilatik@gmail.com')
-  const [password, setPassword] = useState('atik123')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
   // state
@@ -44,11 +44,11 @@ const login = () => {
       })
       // save in local storage
       window.localStorage.setItem('user', JSON.stringify(data))
+      toast.info('Welcome to Blink!')
       // redirect
       router.push('/')
-      // setLoading(false);
     } catch (err) {
-      toast(err.response.data)
+      toast.error(err.response.data)
       setLoading(false)
     }
   }
@@ -56,8 +56,8 @@ const login = () => {
     <section style={{ backgroundImage: `url('/images/live.svg')` }}>
       <div className='flex justify-center py-16'>
         <div className='w-full max-w-md p-8 space-y-3 text-gray-800 rounded-xl bg-gray-50'>
-          <h1 className='text-3xl font-mono text-gray-800 text-center'>
-            Login
+          <h1 className='text-3xl font-mono text-gray-500 text-center'>
+            LOGIN TO BLINK
           </h1>
           <form
             onSubmit={handleSubmit}
@@ -98,10 +98,10 @@ const login = () => {
             </div>
             <button
               type='submit'
-              className='block w-full p-3 text-center bg-indigo-500 rounded-sm text-gray-50'
+              className='block w-full p-3 text-center rounded-sm text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400'
               disabled={!email || !password || loading}
             >
-              {loading ? <SyncOutlined spin /> : 'Sign In'}
+              {loading ? <SyncOutlined spin /> : 'SUBMIT'}
             </button>
           </form>
           <div className='flex items-center pt-4 space-x-1'>

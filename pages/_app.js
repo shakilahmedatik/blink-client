@@ -9,7 +9,7 @@ import { Provider } from '../context'
 function MyApp({ Component, pageProps }) {
   return (
     <Provider>
-      <ToastContainer position='top-center' />
+      <ToastContainer position='bottom-right' autoClose={2000} />
       <TopNav />
       <Component {...pageProps} />
     </Provider>

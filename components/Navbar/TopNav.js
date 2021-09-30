@@ -7,6 +7,7 @@ import {
   LoginOutlined,
   LogoutOutlined,
   UserAddOutlined,
+  UserOutlined,
 } from '@ant-design/icons'
 import { Context } from '../../context'
 import axios from 'axios'
@@ -31,7 +32,7 @@ const TopNav = () => {
     dispatch({ type: 'LOGOUT' })
     window.localStorage.removeItem('user')
     const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}/logout`)
-    toast(data.message)
+    toast.warning(data.message)
     router.push('/login')
   }
 
@@ -43,7 +44,7 @@ const TopNav = () => {
         icon={<AppstoreOutlined />}
       >
         <Link href='/'>
-          <a>App</a>
+          <a>BLINK</a>
         </Link>
       </Item>
 
@@ -53,6 +54,7 @@ const TopNav = () => {
             key='/login'
             onClick={e => setCurrent(e.key)}
             icon={<LoginOutlined />}
+            className='float-right'
           >
             <Link href='/login'>
               <a>Login</a>
@@ -63,6 +65,7 @@ const TopNav = () => {
             key='/register'
             onClick={e => setCurrent(e.key)}
             icon={<UserAddOutlined />}
+            className='float-right'
           >
             <Link href='/register'>
               <a>Register</a>
@@ -78,7 +81,7 @@ const TopNav = () => {
           className='float-right'
         >
           <ItemGroup>
-            <Item key='/user'>
+            <Item icon={<UserOutlined />} key='/user'>
               <Link href='/user'>
                 <a>Dashboard</a>
               </Link>

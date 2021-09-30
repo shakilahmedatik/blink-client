@@ -71,7 +71,6 @@ const Provider = ({ children }) => {
       const { data } = await axios.get(
         `${process.env.NEXT_PUBLIC_API}/csrf-token`
       )
-      console.log('CSRF', data)
       axios.defaults.headers['CSRF-Token'] = data.getCsrfToken
     }
     getCsrfToken()

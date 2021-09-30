@@ -37,9 +37,10 @@ const register = () => {
         }
       )
       // console.log("REGISTER RESPONSE", data);
-      toast('Registration successful. Please login.')
+      toast.success('Registration successful. Please login.')
+      setTimeout(() => router.push('/login'), 1000)
     } catch (err) {
-      toast(err.response.data)
+      toast.error(err.response.data)
       setLoading(false)
     }
   }
@@ -48,8 +49,8 @@ const register = () => {
     <section style={{ backgroundImage: `url('/images/live.svg')` }}>
       <div className='flex justify-center py-16'>
         <div className='w-full max-w-md p-8 space-y-3 text-gray-800 rounded-xl bg-gray-50'>
-          <h1 className='text-3xl font-mono text-gray-800 text-center'>
-            Signup
+          <h1 className='text-3xl font-mono text-gray-500 text-center'>
+            REGISTER NEW ACCOUNT
           </h1>
           <form
             onSubmit={handleSubmit}
@@ -110,10 +111,10 @@ const register = () => {
               </label>
               <button
                 type='submit'
-                className='w-full  p-3 mt-5 bg-indigo-500 text-center rounded-sm text-gray-50 sm:w-auto sm:mt-0'
+                className='w-full  p-3 mt-5 text-center rounded-sm text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400 sm:w-auto sm:mt-0'
                 disabled={!name || !email || !password || loading}
               >
-                {loading ? <SyncOutlined spin /> : 'Submit'}
+                {loading ? <SyncOutlined spin /> : 'SUBMIT'}
               </button>
             </div>
           </form>
