@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import InstructorRoute from '../../../components/routes/InstructorRoute'
+import InstructorRoute from '../../../components/Routes/InstructorRoute'
 import CourseCreateForm from '../../../components/Forms/CourseCreateForm'
 
 const CreateCourse = () => {
