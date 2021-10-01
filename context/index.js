@@ -1,7 +1,6 @@
 import { useReducer, createContext, useEffect } from 'react'
 import axios from 'axios'
 import { useRouter, userRouter } from 'next/router'
-axios.defaults.withCredentials = true
 
 // initial state
 const intialState = {

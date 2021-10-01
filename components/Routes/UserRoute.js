@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import { SyncOutlined } from '@ant-design/icons'
+axios.defaults.withCredentials = true
 
 const UserRoute = ({ children }) => {
   // state
@@ -38,8 +39,7 @@ const UserRoute = ({ children }) => {
   const fetchUser = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.NEXT_PUBLIC_API}/current-user`,
-        { withCredentials: true }
+        `${process.env.NEXT_PUBLIC_API}/current-user`
       )
       //   console.log(data);
       if (data.ok) setOk(true)
