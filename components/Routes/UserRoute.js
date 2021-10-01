@@ -13,35 +13,20 @@ const UserRoute = ({ children }) => {
     fetchUser()
   }, [])
 
-  const fetchUser = async () => {
-    try {
-      const { data } = await fetch(
-        `${process.env.NEXT_PUBLIC_API}/current-user`,
-        {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-        }
-      )
-      console.log(data)
-      if (data.ok) setOk(true)
-    } catch (err) {
-      console.log(err)
-      setOk(false)
-      router.push('/login')
-    }
-  }
-
   // const fetchUser = async () => {
   //   try {
-  //     const { data } = await axios.get(
+  //     const { data } = await fetch(
   //       `${process.env.NEXT_PUBLIC_API}/current-user`,
-  //       { withCredentials: true }
+  //       {
+  //         method: 'GET',
+  //         headers: {
+  //           Accept: 'application/json',
+  //           'Content-Type': 'application/json',
+  //         },
+  //         credentials: 'include',
+  //       }
   //     )
-  //     //   console.log(data);
+  //     console.log(data)
   //     if (data.ok) setOk(true)
   //   } catch (err) {
   //     console.log(err)
@@ -49,6 +34,21 @@ const UserRoute = ({ children }) => {
   //     router.push('/login')
   //   }
   // }
+
+  const fetchUser = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_API}/current-user`,
+        { withCredentials: true }
+      )
+      //   console.log(data);
+      if (data.ok) setOk(true)
+    } catch (err) {
+      console.log(err)
+      setOk(false)
+      router.push('/login')
+    }
+  }
 
   return (
     <>
