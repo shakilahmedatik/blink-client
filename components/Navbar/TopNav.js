@@ -8,6 +8,8 @@ import {
   LogoutOutlined,
   UserAddOutlined,
   UserOutlined,
+  TeamOutlined,
+  CarryOutOutlined,
 } from '@ant-design/icons'
 import { Context } from '../../context'
 import axios from 'axios'
@@ -38,15 +40,37 @@ const TopNav = () => {
 
   return (
     <Menu mode='horizontal' selectedKeys={[current]}>
-      <Item
-        key='/'
-        onClick={e => setCurrent(e.key)}
-        icon={<AppstoreOutlined />}
-      >
+      <Item key='/' onClick={e => setCurrent(e.key)}>
         <Link href='/'>
-          <a>BLINK</a>
+          <a>
+            <div className='flex justify-center align-center pt-1 pr-1'>
+              <img src='/images/logo.svg' className='w-10 h-10' alt='' /> BLINK
+            </div>
+          </a>
         </Link>
       </Item>
+
+      {user && user.role && user.role.includes('Instructor') ? (
+        <Item
+          key='/instructor/course/create'
+          onClick={e => setCurrent(e.key)}
+          icon={<CarryOutOutlined />}
+        >
+          <Link href='/instructor/course/create'>
+            <a>Create Course</a>
+          </Link>
+        </Item>
+      ) : (
+        <Item
+          key='/user/become-instructor'
+          onClick={e => setCurrent(e.key)}
+          icon={<TeamOutlined />}
+        >
+          <Link href='/user/become-instructor'>
+            <a>Become Instructor</a>
+          </Link>
+        </Item>
+      )}
 
       {user === null && (
         <>
@@ -81,11 +105,27 @@ const TopNav = () => {
           className='float-right'
         >
           <ItemGroup>
-            <Item icon={<UserOutlined />} key='/user'>
-              <Link href='/user'>
-                <a>Dashboard</a>
-              </Link>
-            </Item>
+            {user && user.role && !user.role.includes('Instructor') ? (
+              <Item
+                icon={<UserOutlined />}
+                onClick={e => setCurrent(e.key)}
+                key='/user'
+              >
+                <Link href='/user'>
+                  <a>Dashboard</a>
+                </Link>
+              </Item>
+            ) : (
+              <Item
+                icon={<UserOutlined />}
+                onClick={e => setCurrent(e.key)}
+                key='/instructor'
+              >
+                <Link href='/instructor'>
+                  <a>Dashboard</a>
+                </Link>
+              </Item>
+            )}
             <Item icon={<LogoutOutlined />} onClick={logout}>
               Logout
             </Item>
