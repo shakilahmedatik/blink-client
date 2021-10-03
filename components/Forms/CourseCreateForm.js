@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Select, Button } from 'antd'
+import { Select, Button, Avatar } from 'antd'
 
 const { Option } = Select
 
@@ -9,6 +9,8 @@ const CourseCreateForm = ({
   handleChange,
   values,
   setValues,
+  preview,
+  uploadButtonText,
 }) => {
   const children = []
   for (let i = 9.99; i <= 100.99; i++) {
@@ -58,31 +60,33 @@ const CourseCreateForm = ({
             <label htmlFor='type' className='block text-gray-600'>
               Course Type
             </label>
-            <Select
-              id='type'
-              className='w-full'
-              size='large'
-              value={values.paid}
-              onChange={v => setValues({ ...values, paid: !values.paid })}
-            >
-              <Option value={true}>Paid</Option>
-              <Option value={false}>Free</Option>
-            </Select>
-          </div>
-
-          {values.paid && (
-            <div>
+            <div className='flex'>
               <Select
-                defaultValue='$9.99'
-                style={{ width: '100%' }}
-                onChange={v => setValues({ ...values, price: v })}
-                tokenSeparators={[,]}
+                id='type'
+                className='w-full'
                 size='large'
+                value={values.paid}
+                onChange={v => setValues({ ...values, paid: v, price: 0 })}
               >
-                {children}
+                <Option value={true}>Paid</Option>
+                <Option value={false}>Free</Option>
               </Select>
+
+              {values.paid && (
+                <div>
+                  <Select
+                    defaultValue='$9.99'
+                    style={{ width: '100%' }}
+                    onChange={v => setValues({ ...values, price: v })}
+                    tokenSeparators={[,]}
+                    size='large'
+                  >
+                    {children}
+                  </Select>
+                </div>
+              )}
             </div>
-          )}
+          </div>
 
           <div className='space-y-1 text-sm'>
             <label htmlFor='category' className='block text-gray-600'>
@@ -104,9 +108,9 @@ const CourseCreateForm = ({
             </Select>
           </div>
 
-          <div>
+          <div className='flex space-x-4 items-center'>
             <label className='p-3 text-center rounded-md cursor-pointer text-gray-500 font-bold border  border-green-400 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-400 hover:border-white hover:text-white'>
-              {values.loading ? 'UPLOADING...' : 'UPLOAD IMAGE'}
+              {uploadButtonText}
               <input
                 type='file'
                 name='image'
@@ -115,6 +119,7 @@ const CourseCreateForm = ({
                 hidden
               />
             </label>
+            {preview && <Avatar shape='square' size={64} src={preview} />}
           </div>
 
           <button

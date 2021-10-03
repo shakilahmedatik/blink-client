@@ -46,7 +46,7 @@ const Provider = ({ children }) => {
       // any status codes that falls outside the range of 2xx cause this function
       // to trigger
       let res = error.response
-      if (res.status === 401 && res.config && !res.config.__isRetryRequest) {
+      if (res?.status === 401 && res.config && !res.config.__isRetryRequest) {
         return new Promise((resolve, reject) => {
           axios
             .get(`${process.env.NEXT_PUBLIC_API}/logout`)
