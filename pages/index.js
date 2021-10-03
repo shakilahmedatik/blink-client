@@ -1,5 +1,5 @@
 import Hero from '../components/Hero/Hero'
-
+import Footer from '../components/Footer/Footer'
 import TopNav from '../components/Navbar/TopNav'
 
 export default function Home() {
@@ -7,6 +7,7 @@ export default function Home() {
     <>
       <TopNav />
       <Hero />
+      <Footer />
     </>
   )
 }

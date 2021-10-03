@@ -4,6 +4,7 @@ import InstructorRoute from '../../../components/Routes/InstructorRoute'
 import CourseCreateForm from '../../../components/Forms/CourseCreateForm'
 import Resizer from 'react-image-file-resizer'
 import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
 
 const CreateCourse = () => {
   // state
@@ -20,6 +21,9 @@ const CreateCourse = () => {
   const [preview, setPreview] = useState('')
   const [uploadButtonText, setUploadButtonText] = useState('UPLOAD IMAGE')
   // const [image, setImage] = useState('')
+
+  // router
+  const router = useRouter()
 
   const handleChange = e => {
     setValues({ ...values, [e.target.name]: e.target.value })
@@ -75,7 +79,7 @@ const CreateCourse = () => {
       const { data } = await axios.post(
         `${process.env.NEXT_PUBLIC_API}/course`,
         {
-          values,
+          ...values,
         }
       )
       console.log(data)
@@ -99,7 +103,6 @@ const CreateCourse = () => {
           uploadButtonText={uploadButtonText}
         />
       </div>
-      <pre>{JSON.stringify(values, null, 4)}</pre>
     </InstructorRoute>
   )
 }

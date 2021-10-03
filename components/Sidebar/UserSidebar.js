@@ -74,7 +74,7 @@ const UserSidebar = () => {
                 current === '/user' && 'bg-blue-500'
               } hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-700 text-white hover:text-white`}
             >
-              <UserOutlined /> {user.name}
+              <UserOutlined /> Dashboard
             </a>
           </Link>
           {user && user.role && !user.role.includes('Instructor') && (

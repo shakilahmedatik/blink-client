@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import { SyncOutlined } from '@ant-design/icons'
-import Sidebar from '../Sidebar/UserSidebar'
+import UserSidebar from '../Sidebar/UserSidebar'
 axios.defaults.withCredentials = true
 
 const UserRoute = ({ children }) => {
@@ -31,18 +31,18 @@ const UserRoute = ({ children }) => {
 
   return (
     <>
-      {!ok ? (
-        <div className='flex justify-center items-center h-screen text-7xl text-indigo-600'>
-          <SyncOutlined spin />
+      <div className='relative min-h-screen md:flex'>
+        <UserSidebar />
+        <div className='flex-1 md:ml-64'>
+          {!ok ? (
+            <div className='flex justify-center items-center h-screen text-7xl text-indigo-600'>
+              <SyncOutlined spin />
+            </div>
+          ) : (
+            <div> {children}</div>
+          )}
         </div>
-      ) : (
-        <>
-          <div className='relative min-h-screen md:flex'>
-            <Sidebar />
-            <div className='flex-1 md:ml-64 '>{children}</div>
-          </div>
-        </>
-      )}
+      </div>
     </>
   )
 }
