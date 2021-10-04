@@ -12,10 +12,14 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <link rel='icon' href='/images/favicon.ico' type='image/x-icon'></link>
+        <script
+          src='//code.tidio.co/cgvho5ssjveoxyjuwvn1pylwl59zejxj.js'
+          async
+        ></script>
         <title>Blink | Online Learning Platform</title>
       </Head>
       <Provider>
-        <ToastContainer position='bottom-right' autoClose={2000} />
+        <ToastContainer position='top-center' autoClose={2000} />
 
         <Component {...pageProps} />
       </Provider>
