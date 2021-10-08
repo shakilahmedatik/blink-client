@@ -34,9 +34,16 @@ const InstructorIndex = () => {
               <div className='container p-5  mx-auto'>
                 <div className='items-center sm:flex'>
                   <div className='lg:w-1/2 '>
-                    <h2 className=' text-2xl font-semibold text-gray-700'>
-                      {course.name}
-                    </h2>
+                    <Link
+                      href={`/instructor/course/view/${course.slug}`}
+                      className='cursor-pointer'
+                    >
+                      <a>
+                        <h2 className=' text-2xl font-semibold text-gray-700'>
+                          {course.name}
+                        </h2>
+                      </a>
+                    </Link>
                     <span className='px-3 py-1 text-xs text-indigo-800 uppercase bg-indigo-200 rounded-full dark:bg-indigo-300 dark:text-indigo-900'>
                       {course.lessons.length} Lessons
                     </span>
