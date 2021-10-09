@@ -3,11 +3,20 @@ import { useRouter } from 'next/router'
 import InstructorRoute from '../../../../components/Routes/InstructorRoute'
 import axios from 'axios'
 import { Avatar, Tooltip, Button, Modal, List } from 'antd'
-import { EditOutlined, CheckOutlined, UploadOutlined } from '@ant-design/icons'
-import ReactMarkdown from 'react-markdown'
+import {
+  EditOutlined,
+  CheckOutlined,
+  UploadOutlined,
+  QuestionOutlined,
+  CloseOutlined,
+  UserSwitchOutlined,
+} from '@ant-design/icons'
 import AddLessonForm from '../../../../components/Forms/AddLessonForm'
 import { toast } from 'react-toastify'
 import Item from 'antd/lib/list/Item'
+
+// import ReactMarkdown from 'react-markdown'
+// <ReactMarkdown children={course.description} />
 
 const CourseView = () => {
   const [course, setCourse] = useState({})
@@ -62,7 +71,6 @@ const CourseView = () => {
       const file = e.target.files[0]
       setUploadButtonText(file.name)
       setUploading(true)
-
       const videoData = new FormData()
       videoData.append('video', file)
       // save progress bar and send video as form data to backend
@@ -82,6 +90,43 @@ const CourseView = () => {
       console.log(err)
       setUploading(false)
       toast.error('Video upload failed')
+    }
+  }
+
+  const handlePublish = async () => {
+    // console.log(course.instructor._id);
+    // return;
+    try {
+      let answer = window.confirm(
+        'Once you publish your course, it will be live in the marketplace for students to enroll.'
+      )
+      if (!answer) return
+      const { data } = await axios.put(
+        `${process.env.NEXT_PUBLIC_API}/course/publish/${course._id}`
+      )
+      // console.log("COURSE PUBLISHED RES", data);
+      toast.success('Congrats. Your course is now live in marketplace!')
+      setCourse(data)
+    } catch (err) {
+      toast.error('Course publish failed. Try again')
+    }
+  }
+
+  const handleUnpublish = async () => {
+    // console.log(slug);
+    // return;
+    try {
+      let answer = window.confirm(
+        'Once you unpublish your course, it will not appear in the marketplace for students to enroll.'
+      )
+      if (!answer) return
+      const { data } = await axios.put(
+        `${process.env.NEXT_PUBLIC_API}/course/unpublish/${course._id}`
+      )
+      toast.success('Your course is now removed from the marketplace!')
+      setCourse(data)
+    } catch (err) {
+      toast.error('Course unpublish failed. Try again')
     }
   }
 
@@ -113,16 +158,40 @@ const CourseView = () => {
               <div className='sm:flex-col flex my-4 sm:space-y-4 sm:space-x-0 space-x-3'>
                 <div
                   onClick={() => router.push(`/instructor/course/edit/${slug}`)}
-                  className='bg-yellow-100 p-2 rounded-lg text-yellow-500 shadow cursor-pointer'
+                  className='bg-blue-100 p-2 rounded-lg text-blue-500 shadow cursor-pointer'
                 >
                   <Tooltip title='Edit'>
                     <EditOutlined className='text-2xl' />
                   </Tooltip>
                 </div>
-                <div className='bg-green-100 p-2 rounded-lg text-green-500 shadow cursor-pointer'>
-                  <Tooltip title='Publish'>
-                    <CheckOutlined className='text-2xl' />
-                  </Tooltip>
+                <div className='cursor-pointer'>
+                  {/* course published ? unpublished */}
+                  {course.lessons && course.lessons.length < 5 ? (
+                    <div className='text-yellow-500 rounded-lg shadow  p-2 bg-yellow-100'>
+                      <Tooltip title='Min 5 lessons required to publish'>
+                        <QuestionOutlined className='text-2xl ' />
+                      </Tooltip>
+                    </div>
+                  ) : course.published ? (
+                    <Tooltip title='Unpublish'>
+                      <div className='text-red-500 p-2 rounded-lg shadow  bg-red-100'>
+                        {' '}
+                        <CloseOutlined
+                          onClick={handleUnpublish}
+                          className='text-2xl'
+                        />
+                      </div>
+                    </Tooltip>
+                  ) : (
+                    <Tooltip title='Publish'>
+                      <div className='text-green-500 p-2 rounded-lg shadow  bg-green-100'>
+                        <CheckOutlined
+                          onClick={handlePublish}
+                          className='text-2xl'
+                        />
+                      </div>
+                    </Tooltip>
+                  )}
                 </div>
               </div>
             </div>
@@ -139,7 +208,7 @@ const CourseView = () => {
             <hr className='mt-4 border-2 bg-gray-200 lg:w-11/12' />
 
             <div className='flex-col my-6 '>
-              <ReactMarkdown children={course.description} />
+              <p>{course.description} </p>
 
               <br />
 

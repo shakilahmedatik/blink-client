@@ -58,7 +58,7 @@ const UpdateLessonForm = ({
         <Switch
           className='float-right'
           disabled={uploading}
-          defaultChecked={current.free_preview}
+          checked={current.free_preview ? true : false}
           name='fee_preview'
           onChange={v => setCurrent({ ...current, free_preview: v })}
         />
