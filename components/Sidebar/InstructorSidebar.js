@@ -53,7 +53,11 @@ const InstructorSidebar = () => {
         </button>
       </div>
       <div
-        style={{ backgroundImage: `url('/images/fall.svg')` }}
+        style={{
+          backgroundImage: `url('/images/endless.svg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
         className={`z-10 md:fixed overflow-x-hidden text-blue-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && '-translate-x-full'
         }  md:translate-x-0  transition duration-200 ease-in-out`}

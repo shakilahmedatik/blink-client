@@ -5,6 +5,8 @@ import TopNav from '../../components/Navbar/TopNav'
 import SingleCourseHeader from '../../components/Cards/SingleCourseHeader'
 import PreviewModal from '../../components/Modal/PreviewModal'
 import SingleCourseLessons from '../../components/Cards/SingleCourseLessons'
+import Footer from '../../components/Footer/Footer'
+import { loadStripe } from '@stripe/stripe-js'
 import { Context } from '../../context'
 import { toast } from 'react-toastify'
 axios.defaults.withCredentials = true
@@ -51,9 +53,12 @@ const SingleCourse = ({ course }) => {
       const { data } = await axios.post(
         `${process.env.NEXT_PUBLIC_API}/paid-enrollment/${course._id}`
       )
-      toast.success(data.message)
-      setLoading(false)
-      router.push(`/user/course/${data.course.slug}`)
+      const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY)
+      stripe.redirectToCheckout({ sessionId: data })
+
+      // toast.success(data.message)
+      // setLoading(false)
+      // router.push(`/user/course/${data.course.slug}`)
     } catch (err) {
       toast.error('Enrollment Failed. Try Again.')
       console.log(err)
@@ -111,6 +116,7 @@ const SingleCourse = ({ course }) => {
           setShowModal={setShowModal}
         />
       )}
+      <Footer />
     </div>
   )
 }

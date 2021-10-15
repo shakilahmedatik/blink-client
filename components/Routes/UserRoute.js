@@ -5,7 +5,7 @@ import { SyncOutlined } from '@ant-design/icons'
 import UserSidebar from '../Sidebar/UserSidebar'
 axios.defaults.withCredentials = true
 
-const UserRoute = ({ children }) => {
+const UserRoute = ({ children, showSidebar = true }) => {
   // state
   const [ok, setOk] = useState(false)
   // router
@@ -32,8 +32,8 @@ const UserRoute = ({ children }) => {
   return (
     <>
       <div className='relative min-h-screen md:flex'>
-        <UserSidebar />
-        <div className='flex-1 md:ml-64'>
+        {showSidebar && <UserSidebar />}
+        <div className={`flex-1 ${showSidebar && 'md:ml-64'}`}>
           {!ok ? (
             <div className='flex justify-center items-center h-screen text-7xl text-indigo-600'>
               <SyncOutlined spin />

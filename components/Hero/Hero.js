@@ -5,7 +5,7 @@ import heroImg from '../.././public/images/Support.svg'
 const Hero = () => {
   return (
     <section
-      style={{ backgroundImage: `url('/images/fall.svg')` }}
+      style={{ backgroundImage: `url('/images/endless.svg')` }}
       className='font-mono'
     >
       <div className='container mx-auto flex px-12 py-16 md:py-4  md:flex-row flex-col  items-center'>
