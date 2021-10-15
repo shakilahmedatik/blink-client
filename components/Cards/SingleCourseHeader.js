@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { LoadingOutlined } from '@ant-design/icons'
 import { currencyFormatter } from '../../utils/helper'
 
 const SingleCourseHeader = ({
@@ -8,6 +8,12 @@ const SingleCourseHeader = ({
   setShowModal,
   preview,
   setPreview,
+  loading,
+  user,
+  handlePaidEnrollment,
+  handleFreeEnrollment,
+  enrolled,
+  setEnrolled,
 }) => {
   const {
     name,
@@ -56,54 +62,68 @@ const SingleCourseHeader = ({
                   : 'Free'}
               </p>
             </div>
-            <div className='flex flex-col items-center md:flex-row'>
-              <a
-                href='/'
-                className='inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-gray-600 hover:bg-gray-700 focus:shadow-outline focus:outline-none'
-              >
-                <span className='mr-3'>Enroll Now</span>
-                <svg
-                  width='24'
-                  height='24'
-                  viewBox='0 0 24 24'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth='2'
-                  className='w-4'
+            {/**Enroll Button */}
+            {loading ? (
+              <div className='flex justify-center px-2 sm:justify-start text-3xl text-red-600'>
+                <LoadingOutlined />
+              </div>
+            ) : (
+              <div className='flex flex-col items-center md:flex-row'>
+                <button
+                  disabled={loading}
+                  onClick={paid ? handlePaidEnrollment : handleFreeEnrollment}
+                  className='inline-flex items-center justify-center w-full h-12 px-6 mb-3 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto md:mr-4 md:mb-0 bg-gray-600 hover:bg-gray-700 focus:shadow-outline focus:outline-none'
                 >
-                  <polyline
-                    fill='none'
-                    stroke='currentColor'
-                    strokeMiterlimit='10'
-                    points='4,4 22,4 19,14 4,14 '
-                  />
-                  <circle
-                    cx='4'
-                    cy='22'
-                    r='2'
-                    strokeLinejoin='miter'
-                    strokeLinecap='square'
-                    stroke='none'
-                    fill='currentColor'
-                  />
-                  <circle
-                    cx='20'
-                    cy='22'
-                    r='2'
-                    strokeLinejoin='miter'
-                    strokeLinecap='square'
-                    stroke='none'
-                    fill='currentColor'
-                  />
-                  <polyline
-                    fill='none'
-                    stroke='currentColor'
-                    strokeMiterlimit='10'
-                    points='1,1 4,4 4,14 2,18 23,18 '
-                  />
-                </svg>
-              </a>
-            </div>
+                  <span className='mr-3'>
+                    {user
+                      ? enrolled.status
+                        ? 'Go to course'
+                        : 'Enroll Now'
+                      : 'Login to enroll'}
+                  </span>
+                  <svg
+                    width='24'
+                    height='24'
+                    viewBox='0 0 24 24'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                    className='w-4'
+                  >
+                    <polyline
+                      fill='none'
+                      stroke='currentColor'
+                      strokeMiterlimit='10'
+                      points='4,4 22,4 19,14 4,14 '
+                    />
+                    <circle
+                      cx='4'
+                      cy='22'
+                      r='2'
+                      strokeLinejoin='miter'
+                      strokeLinecap='square'
+                      stroke='none'
+                      fill='currentColor'
+                    />
+                    <circle
+                      cx='20'
+                      cy='22'
+                      r='2'
+                      strokeLinejoin='miter'
+                      strokeLinecap='square'
+                      stroke='none'
+                      fill='currentColor'
+                    />
+                    <polyline
+                      fill='none'
+                      stroke='currentColor'
+                      strokeMiterlimit='10'
+                      points='1,1 4,4 4,14 2,18 23,18 '
+                    />
+                  </svg>
+                </button>
+              </div>
+            )}
           </div>
           <div className='relative lg:w-1/2'>
             <img
