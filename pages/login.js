@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Context } from '../context'
 import { useRouter } from 'next/router'
 import TopNav from '../components/Navbar/TopNav'
+axios.defaults.withCredentials = true
 
 const login = () => {
   const [email, setEmail] = useState('')

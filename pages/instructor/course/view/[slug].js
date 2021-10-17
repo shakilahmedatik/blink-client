@@ -14,9 +14,7 @@ import {
 import AddLessonForm from '../../../../components/Forms/AddLessonForm'
 import { toast } from 'react-toastify'
 import Item from 'antd/lib/list/Item'
-
-// import ReactMarkdown from 'react-markdown'
-// <ReactMarkdown children={course.description} />
+import ReactMarkdown from 'react-markdown'
 
 const CourseView = () => {
   const [course, setCourse] = useState({})
@@ -31,6 +29,9 @@ const CourseView = () => {
   const [uploadButtonText, setUploadButtonText] = useState('Upload Video')
   const [progress, setProgress] = useState(0)
 
+  // student count
+  const [students, setStudents] = useState(0)
+
   const router = useRouter()
   const { slug } = router.query
 
@@ -38,11 +39,25 @@ const CourseView = () => {
     loadCourse()
   }, [slug])
 
+  useEffect(() => {
+    course && studentCount()
+  }, [course])
+
   const loadCourse = async () => {
     const { data } = await axios.get(
       `${process.env.NEXT_PUBLIC_API}/course/${slug}`
     )
     setCourse(data)
+  }
+
+  const studentCount = async () => {
+    const { data } = await axios.post(
+      `${process.env.NEXT_PUBLIC_API}/instructor/student-count`,
+      {
+        courseId: course._id,
+      }
+    )
+    setStudents(data.length)
   }
 
   // FUNCTIONS FOR ADD LESSON
@@ -147,11 +162,15 @@ const CourseView = () => {
                 <h2 className=' text-2xl font-semibold text-gray-700'>
                   {course.name}
                 </h2>
-                <span className='px-3 inline-block my-2  py-1 text-xs text-indigo-800 uppercase bg-indigo-200 rounded-full'>
+                <span className='px-3 inline-block mb-1  py-1 text-xs text-indigo-800 uppercase bg-indigo-200 rounded-full'>
                   {course.lessons && course.lessons.length} Lessons
                 </span>
                 <br />
-                <span className='px-3 py-1 text-xs text-green-800 uppercase bg-green-200 rounded-full'>
+                <span className='px-3 inline-block mb-1 text-xs  py-1 text-yellow-800 uppercase bg-yellow-200 rounded-full'>
+                  {`${students} Enrolled`}
+                </span>
+                <br />
+                <span className='px-3 inline-block mb-1  py-1 text-xs text-green-800 uppercase bg-green-200 rounded-full'>
                   {course.category}
                 </span>
               </div>
@@ -196,19 +215,21 @@ const CourseView = () => {
               </div>
             </div>
             <div className='px-4  sm:px-0 mt-4'>
-              <Button
+              <button
                 onClick={() => setVisible(true)}
-                type='primary'
-                shape='round'
-                icon={<UploadOutlined />}
+                className='px-3 py-1 font-light rounded-md shadow-md text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400'
               >
-                Add Lesson
-              </Button>
+                <div className='flex text-md space-x-1 items-center'>
+                  <UploadOutlined />
+                  <span>Add Lesson</span>
+                </div>
+              </button>
             </div>
+
             <hr className='mt-4 border-2 bg-gray-200 lg:w-11/12' />
 
             <div className='flex-col my-6 '>
-              <p>{course.description} </p>
+              <ReactMarkdown children={course.description} />
 
               <br />
 

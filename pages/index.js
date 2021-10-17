@@ -4,6 +4,7 @@ import Hero from '../components/Hero/Hero'
 import Footer from '../components/Footer/Footer'
 import TopNav from '../components/Navbar/TopNav'
 import CourseCard from '../components/Cards/CourseCard'
+axios.defaults.withCredentials = true
 
 export async function getServerSideProps() {
   const { data } = await axios.get(`${process.env.API}/courses`)

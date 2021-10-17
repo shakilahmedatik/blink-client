@@ -10,6 +10,7 @@ import {
   UserOutlined,
   TeamOutlined,
   CarryOutOutlined,
+  MoneyCollectOutlined,
 } from '@ant-design/icons'
 
 const InstructorSidebar = () => {
@@ -91,19 +92,13 @@ const InstructorSidebar = () => {
               <CarryOutOutlined /> Create Course
             </a>
           </Link>
-          <Link href='/'>
-            <a className='block py-2.5 px-4 rounded transition duration-200 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 text-white hover:text-white'>
-              About
-            </a>
-          </Link>
-          <Link href='/'>
-            <a className='block py-2.5 px-4 rounded transition duration-200 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 text-white hover:text-white'>
-              Features
-            </a>
-          </Link>
-          <Link href='/'>
-            <a className='block py-2.5 px-4 rounded transition duration-200 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-700 text-white hover:text-white'>
-              Pricing
+          <Link href='/instructor/revenue'>
+            <a
+              className={`block py-2.5 px-4 rounded transition duration-200 ${
+                current === '/instructor/revenue' && 'bg-blue-500'
+              } hover:bg-gradient-to-r hover:from-blue-700 hover:to-blue-700 text-white hover:text-white`}
+            >
+              <MoneyCollectOutlined /> Revenue
             </a>
           </Link>
         </nav>
