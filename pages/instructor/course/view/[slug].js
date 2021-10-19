@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import InstructorRoute from '../../../../components/Routes/InstructorRoute'
 import axios from 'axios'
-import { Avatar, Tooltip, Button, Modal, List } from 'antd'
+import { Avatar, Tooltip, Modal, List } from 'antd'
 import {
   EditOutlined,
   CheckOutlined,
   UploadOutlined,
   QuestionOutlined,
   CloseOutlined,
-  UserSwitchOutlined,
 } from '@ant-design/icons'
 import AddLessonForm from '../../../../components/Forms/AddLessonForm'
 import { toast } from 'react-toastify'
@@ -109,8 +108,6 @@ const CourseView = () => {
   }
 
   const handlePublish = async () => {
-    // console.log(course.instructor._id);
-    // return;
     try {
       let answer = window.confirm(
         'Once you publish your course, it will be live in the marketplace for students to enroll.'

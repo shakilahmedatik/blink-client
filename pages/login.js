@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Context } from '../context'
 import { useRouter } from 'next/router'
 import TopNav from '../components/Navbar/TopNav'
+import Navbar from '../components/Navbar/Navbar'
 axios.defaults.withCredentials = true
 
 const login = () => {
@@ -39,16 +40,15 @@ const login = () => {
           password,
         }
       )
-      // console.log("LOGIN RESPONSE", data);
+      // redirect
+      router.push('/')
+      toast.info('Welcome to Blink!')
       dispatch({
         type: 'LOGIN',
         payload: data,
       })
       // save in local storage
       window.localStorage.setItem('user', JSON.stringify(data))
-      toast.info('Welcome to Blink!')
-      // redirect
-      router.push('/')
     } catch (err) {
       toast.error(err.response.data)
       setLoading(false)
@@ -56,7 +56,7 @@ const login = () => {
   }
   return (
     <>
-      <TopNav />
+      <Navbar />
       <section style={{ backgroundImage: `url('/images/live.svg')` }}>
         <div className='flex justify-center py-16'>
           <div className='w-full max-w-md p-8 space-y-3 text-gray-800 rounded-xl bg-gray-50'>

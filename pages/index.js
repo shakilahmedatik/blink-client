@@ -4,6 +4,7 @@ import Hero from '../components/Hero/Hero'
 import Footer from '../components/Footer/Footer'
 import TopNav from '../components/Navbar/TopNav'
 import CourseCard from '../components/Cards/CourseCard'
+import Navbar from '../components/Navbar/Navbar'
 axios.defaults.withCredentials = true
 
 export async function getServerSideProps() {
@@ -16,7 +17,7 @@ export async function getServerSideProps() {
 export default function Home({ courses }) {
   return (
     <>
-      <TopNav />
+      <Navbar />
       <Hero />
       <section className='container p-6 mx-auto bg-white'>
         <div className='flex items-center justify-center'>

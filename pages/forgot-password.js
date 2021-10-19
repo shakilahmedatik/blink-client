@@ -5,6 +5,7 @@ import { SyncOutlined } from '@ant-design/icons'
 import { Context } from '../context'
 import { useRouter } from 'next/router'
 import TopNav from '../components/Navbar/TopNav'
+import Navbar from '../components/Navbar/Navbar'
 
 const ForgotPassword = () => {
   // state
@@ -73,7 +74,7 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <TopNav />
+      <Navbar />
       <section style={{ backgroundImage: `url('/images/live.svg')` }}>
         <div className='flex justify-center py-16'>
           <div className='w-full max-w-md p-8 space-y-3 text-gray-800 rounded-xl bg-gray-50'>
