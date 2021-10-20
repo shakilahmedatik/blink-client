@@ -26,7 +26,7 @@ const StripeSuccess = () => {
 
   return (
     <UserRoute showSidebar={false}>
-      <div className='flex justify-center items-center h-screen text-7xl text-indigo-600'>
+      <div className='flex justify-center items-center h-screen text-7xl text-blue-600'>
         <SyncOutlined spin />
       </div>
     </UserRoute>

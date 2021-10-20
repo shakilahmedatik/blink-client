@@ -2,11 +2,8 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer
-      style={{ backgroundImage: `url('/images/endless.svg')` }}
-      className=' mt-16 '
-    >
-      <div className='container px-6 py-4 mx-auto'>
+    <footer className='mt-8 lg:mt-16  bg-blue-600'>
+      <div className='container px-4 md:px-16 py-8 lg:py-16 mx-auto'>
         <div className='lg:flex'>
           <div className='w-full -mx-6 lg:w-2/5'>
             <div className='px-6'>

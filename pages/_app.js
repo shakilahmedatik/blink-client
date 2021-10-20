@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }) {
 
         <title>Blink | Online Learning Platform</title>
       </Head>
+
       <Provider>
         <ToastContainer position='top-center' autoClose={2000} />
 

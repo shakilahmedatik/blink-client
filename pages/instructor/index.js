@@ -22,7 +22,7 @@ const InstructorIndex = () => {
 
   return (
     <InstructorRoute>
-      <h1 className='text-center text-4xl font-bold text-gray-400 uppercase py-5'>
+      <h1 className='text-center text-2xl font-semibold uppercase tracking-tight text-gray-800 md:text-4xl sm:leading-none py-6'>
         Instructor Dashboard
       </h1>
       {courses.length > 0 ? (

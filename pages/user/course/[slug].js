@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createElement } from 'react'
 import { useRouter } from 'next/router'
-import TopNav from '../../../components/Navbar/TopNav'
+import Navbar from '../../../components/Navbar/Navbar'
 import StudentRoute from '../../../components/Routes/StudentRoute'
 import { Button, Menu, Avatar } from 'antd'
 const { Item } = Menu
@@ -93,7 +93,7 @@ const SingleCourse = () => {
 
   return (
     <>
-      <TopNav />
+      <Navbar />
       <StudentRoute>
         <div className='sm:flex '>
           <div>

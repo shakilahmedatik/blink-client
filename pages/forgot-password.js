@@ -4,7 +4,6 @@ import { toast } from 'react-toastify'
 import { SyncOutlined } from '@ant-design/icons'
 import { Context } from '../context'
 import { useRouter } from 'next/router'
-import TopNav from '../components/Navbar/TopNav'
 import Navbar from '../components/Navbar/Navbar'
 
 const ForgotPassword = () => {
@@ -136,7 +135,7 @@ const ForgotPassword = () => {
 
               <button
                 type='submit'
-                className='block w-full p-3 text-center rounded-sm text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400'
+                className='block w-full p-3 text-center rounded-sm transition duration-200 text-white font-bold bg-blue-600 hover:bg-gray-200 hover:text-gray-700 focus:shadow-outline focus:outline-none'
                 disabled={loading || !email}
               >
                 {loading ? <SyncOutlined spin /> : 'SUBMIT'}

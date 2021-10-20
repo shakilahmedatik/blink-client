@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
-import TopNav from '../../components/Navbar/TopNav'
 import SingleCourseHeader from '../../components/Cards/SingleCourseHeader'
 import PreviewModal from '../../components/Modal/PreviewModal'
 import SingleCourseLessons from '../../components/Cards/SingleCourseLessons'
@@ -9,6 +8,7 @@ import Footer from '../../components/Footer/Footer'
 import { loadStripe } from '@stripe/stripe-js'
 import { Context } from '../../context'
 import { toast } from 'react-toastify'
+import Navbar from '../../components/Navbar/Navbar'
 axios.defaults.withCredentials = true
 
 export async function getServerSideProps({ query }) {
@@ -89,7 +89,7 @@ const SingleCourse = ({ course }) => {
 
   return (
     <div>
-      <TopNav />
+      <Navbar />
       <SingleCourseHeader
         course={course}
         showModal={showModal}

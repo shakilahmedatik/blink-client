@@ -5,7 +5,7 @@ import { SyncOutlined } from '@ant-design/icons'
 import Link from 'next/link'
 import { Context } from '../context'
 import { useRouter } from 'next/router'
-import TopNav from '../components/Navbar/TopNav'
+import Navbar from '../components/Navbar/Navbar'
 
 const register = () => {
   const [name, setName] = useState('')
@@ -48,7 +48,7 @@ const register = () => {
 
   return (
     <>
-      <TopNav />
+      <Navbar />
       <section style={{ backgroundImage: `url('/images/live.svg')` }}>
         <div className='flex justify-center py-16'>
           <div className='w-full max-w-md p-8 space-y-3 text-gray-800 rounded-xl bg-gray-50'>
@@ -114,7 +114,7 @@ const register = () => {
                 </label>
                 <button
                   type='submit'
-                  className='w-full  p-3 mt-5 text-center rounded-sm text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400 sm:w-auto sm:mt-0'
+                  className='w-full  p-3 mt-5 text-center rounded-sm text-white font-bold bg-blue-600 hover:bg-gray-200 hover:text-gray-700 focus:shadow-outline focus:outline-none sm:w-auto sm:mt-0'
                   disabled={!name || !email || !password || loading}
                 >
                   {loading ? <SyncOutlined spin /> : 'SUBMIT'}

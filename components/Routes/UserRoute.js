@@ -35,7 +35,7 @@ const UserRoute = ({ children, showSidebar = true }) => {
         {showSidebar && <UserSidebar />}
         <div className={`flex-1 ${showSidebar && 'md:ml-64'}`}>
           {!ok ? (
-            <div className='flex justify-center items-center h-screen text-7xl text-indigo-600'>
+            <div className='flex justify-center items-center h-screen text-7xl text-blue-600'>
               <SyncOutlined spin />
             </div>
           ) : (
