@@ -36,7 +36,7 @@ const Newsletter = () => {
         <div className='w-1/2'>
           <img
             className='max-w-2/3 object-cover mx-auto'
-            src='/images/subscribe.svg'
+            src='/images/letter-subscribe.svg'
             alt='subscribe'
           />
         </div>
