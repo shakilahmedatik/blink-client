@@ -180,6 +180,7 @@ const CourseEdit = () => {
     // once response is received
     setCurrent({ ...current, video: data })
     setUploading(false)
+    e.target.value = null
   }
 
   const handleUpdateLesson = async e => {
