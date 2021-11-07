@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import Link from 'next/link'
+
 import { Context } from '../../../context/index'
 
 const BecomeInstructor = () => {

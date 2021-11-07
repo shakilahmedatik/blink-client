@@ -7,33 +7,35 @@ const About = () => {
     <>
       <Navbar />
 
-      <div class='w-full px-4 py-8 mx-auto lg:py-16 lg:px-16'>
-        <div class='flex flex-col lg:flex-row lg:space-x-12'>
-          <div class='order-last w-full max-w-screen-sm m-auto mt-12  lg:w-1/4 lg:order-first'>
-            <div class='p-4 transition duration-500 ease-in-out transform bg-white border rounded-lg '>
-              <div class='flex py-2 mb-4'>
-                <img src='/images/logo.png' class='w-16 h-16 rounded-full' />
-                <div class='ml-4'>
-                  <p class='text-sm font-medium text-gray-900'>Blink LTD.</p>
-                  <p class='text-sm text-gray-500'>Marketplace</p>
+      <div className='w-full px-4 py-8 mx-auto lg:py-16 lg:px-16'>
+        <div className='flex flex-col lg:flex-row lg:space-x-12'>
+          <div className='order-last w-full max-w-screen-sm m-auto mt-12  lg:w-1/4 lg:order-first'>
+            <div className='p-4 transition duration-500 ease-in-out transform bg-white border rounded-lg '>
+              <div className='flex py-2 mb-4'>
+                <img src='/images/logo.png' className='w-16 h-16' />
+                <div className='ml-4'>
+                  <p className='text-sm font-medium text-gray-900'>
+                    Blink LTD.
+                  </p>
+                  <p className='text-sm text-gray-500'>Marketplace</p>
                 </div>
               </div>
               <div>
                 <a
                   href='https://github.com/shakilahmedatik'
                   target='_blank'
-                  class='flex items-center px-6 py-2 mt-auto text-lg text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-gray-200 hover:text-gray-700 focus:shadow-outline focus:outline-none'
+                  className='flex items-center px-6 py-2 mt-auto text-lg text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-gray-200 hover:text-gray-700 focus:shadow-outline focus:outline-none'
                 >
                   Follow us on Github
                 </a>
               </div>
             </div>
           </div>
-          <div class='w-full px-4 mt-12 prose lg:px-0 lg:w-3/4'>
-            <div class='mb-5 border-b border-gray-200'>
-              <div class='flex flex-wrap items-baseline -mt-2'>
+          <div className='w-full px-4 mt-12 prose lg:px-0 lg:w-3/4'>
+            <div className='mb-5 border-b border-gray-200'>
+              <div className='flex flex-wrap items-baseline -mt-2'>
                 <h5>12-03-2021</h5>
-                <p class='mt-1 ml-2'>Transitions</p>
+                <p className='mt-1 ml-2'>Transitions</p>
               </div>
             </div>
             <h1>

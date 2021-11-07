@@ -1,5 +1,3 @@
-import React from 'react'
-
 const TopInstructors = () => {
   return (
     <div className='px-4 py-8 lg:py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16'>
@@ -15,7 +13,7 @@ const TopInstructors = () => {
             <div className='relative'>
               <img
                 alt='profile'
-                src='https://www.tailwind-kit.com/images/person/3.jpg'
+                src='https://i.ibb.co/GsZjY1T/Andrei-Neagoie.jpg'
                 className='mx-auto object-cover rounded-lg h-40 w-40  border-4 border-blue-600 dark:border-gray-800'
               />
             </div>
@@ -23,13 +21,13 @@ const TopInstructors = () => {
           <div className='bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg px-8 py-4 pt-24'>
             <div className='text-center'>
               <p className='text-2xl text-gray-800 dark:text-white'>
-                Patrick Sebastien
+                Andrei Neagoie
               </p>
               <p className='text-xl text-gray-500 dark:text-gray-200 font-light'>
                 Web Developer
               </p>
               <p className='text-md text-gray-500 w-60 dark:text-gray-400 mx-auto py-4 font-light'>
-                Patrick is the instructor of some of the popular highest rated
+                Andrei is the instructor of some of the popular highest rated
                 programming and technical courses online.
               </p>
             </div>
@@ -40,14 +38,16 @@ const TopInstructors = () => {
             <div className='relative'>
               <img
                 alt='profile'
-                src='https://www.tailwind-kit.com/images/person/1.jpg'
+                src='https://i.ibb.co/5GrX8qq/caleb-kingston.jpg'
                 className='mx-auto object-cover rounded-lg h-40 w-40  border-4 border-blue-600 dark:border-gray-800'
               />
             </div>
           </div>
           <div className='bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg px-8 py-4 pt-24'>
             <div className='text-center'>
-              <p className='text-2xl text-gray-800 dark:text-white'>Charlie</p>
+              <p className='text-2xl text-gray-800 dark:text-white'>
+                Caleb Kingston
+              </p>
               <p className='text-xl text-gray-500 dark:text-gray-200 font-light'>
                 Graphics Designer
               </p>
@@ -63,7 +63,7 @@ const TopInstructors = () => {
             <div className='relative'>
               <img
                 alt='profile'
-                src='https://www.tailwind-kit.com/images/person/4.jpg'
+                src='https://i.ibb.co/b3sxzqN/Angela-Yu.jpg'
                 className='mx-auto object-cover rounded-lg h-40 w-40  border-4 border-blue-600 dark:border-gray-800'
               />
             </div>
@@ -71,14 +71,14 @@ const TopInstructors = () => {
           <div className='bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg px-8 py-4 pt-24'>
             <div className='text-center'>
               <p className='text-2xl text-gray-800 dark:text-white'>
-                Thierry Halliday
+                Angela Yu
               </p>
               <p className='text-xl text-gray-500 dark:text-gray-200 font-light'>
                 App Developer
               </p>
               <p className='text-md text-gray-500 w-60 dark:text-gray-400 mx-auto py-4 font-light'>
-                Hi! My name is Thierry Halliday! I'm a passionate software
-                engineer with two decades of experience.
+                Hi! My name is Angela Yu! I'm a passionate software engineer
+                with two decades of experience.
               </p>
             </div>
           </div>

@@ -72,9 +72,9 @@ const InstructorSidebar = () => {
         <Link href='/'>
           <a className='text-white flex justify-center items-center space-x-2'>
             <img
-              className='object-cover w-10 h-10 rounded-full'
+              className='object-cover w-10 h-10 rounded-lg bg-white'
               alt='User avatar'
-              src='/images/logo.svg'
+              src='/images/logo.png'
             />
             <span className='text-2xl font-extrabold'>BLINK</span>
           </a>

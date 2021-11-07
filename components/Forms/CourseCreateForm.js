@@ -113,7 +113,7 @@ const CourseCreateForm = ({
               </div>
 
               <div className='flex space-x-4 items-center'>
-                <label className='p-3 text-center rounded-md cursor-pointer text-gray-500 font-bold border  border-green-400 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-400 hover:border-white hover:text-white'>
+                <label className='p-3 text-center rounded-md cursor-pointer text-gray-500 font-bold border  border-blue-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-400 hover:border-white hover:text-white'>
                   {uploadButtonText}
                   <input
                     type='file'
@@ -131,7 +131,7 @@ const CourseCreateForm = ({
 
               <button
                 type='submit'
-                className='block w-full p-3 text-center rounded-sm text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400'
+                className='block w-full p-3 text-center font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-gray-200 hover:text-gray-700 focus:shadow-outline focus:outline-none'
                 disabled={values.loading || values.uploading}
               >
                 {values.loading ? 'Saving...' : 'Save & Continue'}

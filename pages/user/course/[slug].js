@@ -167,10 +167,10 @@ const SingleCourse = () => {
                       </div>
                     </>
                   )}
-
+                <hr className='my-2' />
                 <ReactMarkdown
                   children={course.lessons[clicked].content}
-                  className='single-post'
+                  className='mt-6'
                 />
               </>
             ) : (
