@@ -100,6 +100,7 @@ const CourseView = () => {
       // once response is received
       setValues({ ...values, video: data })
       setUploading(false)
+      e.target.value = null
     } catch (err) {
       console.log(err)
       setUploading(false)
@@ -214,7 +215,7 @@ const CourseView = () => {
             <div className='px-4  sm:px-0 mt-4'>
               <button
                 onClick={() => setVisible(true)}
-                className='px-3 py-1 font-light rounded-md shadow-md text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400'
+                className='px-3 py-1 font-light rounded-md shadow-md text-white bg-blue-600 hover:bg-gray-200 hover:text-gray-700'
               >
                 <div className='flex text-md space-x-1 items-center'>
                   <UploadOutlined />

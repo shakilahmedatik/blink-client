@@ -138,14 +138,14 @@ const SingleCourse = () => {
 
                   {completedLessons.includes(course.lessons[clicked]._id) ? (
                     <span
-                      className='cursor-pointer px-3 py-1 rounded-sm text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400'
+                      className='cursor-pointer px-3 py-1 rounded-sm text-white font-bold bg-red-400 hover:bg-gray-200 hover:text-gray-700'
                       onClick={markIncomplete}
                     >
                       Mark as incomplete
                     </span>
                   ) : (
                     <span
-                      className='cursor-pointer px-3 py-1 rounded-sm text-white font-bold bg-gradient-to-r from-green-400 to-blue-500 hover:from-blue-500 hover:to-green-400'
+                      className='cursor-pointer px-3 py-1 rounded-sm text-white font-bold bg-green-400 hover:bg-gray-200 hover:text-gray-700'
                       onClick={markCompleted}
                     >
                       Mark as Completed
