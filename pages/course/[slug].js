@@ -46,7 +46,7 @@ const SingleCourse = ({ course }) => {
     e.preventDefault()
     try {
       // Validation
-      if (!user) router.push('/login')
+      if (!user) return router.push('/login')
       if (enrolled.status)
         return router.push(`/user/course/${enrolled.course.slug}`)
       setLoading(true)
@@ -70,7 +70,7 @@ const SingleCourse = ({ course }) => {
     e.preventDefault()
     try {
       // Validation
-      if (!user) router.push('/login')
+      if (!user) return router.push('/login')
       if (enrolled.status)
         return router.push(`/user/course/${enrolled.course.slug}`)
       setLoading(true)
