@@ -1,20 +1,21 @@
-![Preview](https://github.com/shakilahmedatik/blink-client/raw/main/public/images/readme_gif.gif)
-
 # BLINK
 
-The BK Camera Store is an exemple of User Experience Design Exploration for a Camera Store Design, where customers will be able to purchase cameras as well as accessories and assistance while on the go. I hope you like it. Cheers!
+Blink is a LMS Marketplace where students can enroll in a course they like and learn whenever they want. On the other hand instructors can create and host there courses in Blink.
+
+![Preview](https://github.com/shakilahmedatik/blink-client/raw/main/public/images/readme_gif.gif)
+
 
 ## Live site
 
-https://bk-camera.netlify.app/
+https://blinkapp.vercel.app/
 
 ## Screenshots
 
-![Screenshot](https://i.ibb.co/XxcbXkr/bk-camera.jpg)
+![Screenshot](https://github.com/shakilahmedatik/blink-client/raw/main/public/images/screenshot.png)
 
 ## Features Overview:
 
-- The design principles of React.
+- LMS Marketplace
 - Secured Login System with beautiful and clean codes! React Bootstrap, Some powerful React files 100% valid W3 web standards.
 - This template is fully responsive layout for all type of devices.
 - Awesome Dashboard!
@@ -23,21 +24,10 @@ https://bk-camera.netlify.app/
 - Built a Simple CRUD App with Node, Express, and MongoDB
 - I'm running my Heroku as a server so I can access the database with no problem.
 
-## Built with At a Glance
-
-- React.js
-- React Bootstrap
-- Mongodb
-- Heroku
-- CSS
-- SwiperJS
-
 ## Tech Stack
 
-**Client:** React, React Bootstrap
-
-**Server:** Heroku
-
-## Feedback
-
-If you have any feedback, please reach out to us at https://github.com/bkuddin
+**Front-End:** Next.js, Context API.
+**CSS-Framework:** Tailwind CSS.
+**Back-End:** Node.js, Express
+**Database:** MongoDB, Mongoose.
+**Payment-Processor:** Stripe Connect.
