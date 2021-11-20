@@ -16,18 +16,33 @@ https://blinkapp.vercel.app/
 ## Features Overview:
 
 - LMS Marketplace
-- Secured Login System with beautiful and clean codes! React Bootstrap, Some powerful React files 100% valid W3 web standards.
-- This template is fully responsive layout for all type of devices.
-- Awesome Dashboard!
-- Beautiful Review System!
-- In order to allow users to Register or Login with email and password , I implemented Firebase Authentication.
-- Built a Simple CRUD App with Node, Express, and MongoDB
-- I'm running my Heroku as a server so I can access the database with no problem.
+- User friendly UI.
+- Students can enroll in free & paid courses.
+- Nice & Clean user dashboard.
+- Easy payment system with stripe.
+- Users can easily register as Instructor and setup their payout account through Stripe Express.
+- Nice Instructor Dashboard.
+- Instructors can create courses & update them. They can later add lessons in the course. They can publish or unpublish a course. 
+- Fully responsive layout for all type of devices.
+- 24/7 Live chat feature.
+- 
 
 ## Tech Stack
 
-**Front-End:** Next.js, Context API.
-**CSS-Framework:** Tailwind CSS.
-**Back-End:** Node.js, Express
-**Database:** MongoDB, Mongoose.
-**Payment-Processor:** Stripe Connect.
+**Front-End:** 
+- Next.js
+- Context API
+
+**CSS-Framework:** 
+- Tailwind CSS.
+
+**Back-End:** 
+- Node.js
+- Express
+
+**Database:** 
+- MongoDB
+- Mongoose.
+
+**Payment-Processor:** 
+- Stripe Connect.
